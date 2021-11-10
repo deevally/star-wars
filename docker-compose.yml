@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  starwarsapi:
+    image: quotech/starwarsapi
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      LOG_FILE: swapi.log
+      LOG_LEVEL: info
+      LOG_LABEL: swapi
+      base_url: https://swapi.dev/api
+
+    ports:
+      - 3000:3000
